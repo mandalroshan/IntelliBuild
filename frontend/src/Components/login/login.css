@@ -1,0 +1,115 @@
+/* LoginPage.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #314755 0%, #26a0da 100%); /* Gradient background */
+    overflow: hidden;
+}
+
+.login-wrapper {
+    border: 2px solid #005cbf; /* Dark blue border color */
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden;
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    animation: fadeIn 1s ease; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-images,
+.login-content {
+    flex: 1;
+}
+
+.login-images img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.login-content {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 40px;
+    max-width: 600px;
+}
+
+.login-form h2 {
+    color: #005cbf; /* Dark blue heading color */
+}
+
+.login-logo img {
+    max-width: 100px; /* Adjust logo size as needed */
+    margin-top: 10px; /* Add margin to top */
+    
+    animation: logoAnimation 1s ease; /* Logo animation */
+}
+
+.form-group.email {
+    margin-bottom: 15px; /* Add space between email input and login button */
+}
+
+.input-group-text {
+    background-color: #005cbf;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.input-group-text:hover {
+    background-color: #004a9c; /* Darker blue on hover */
+}
+
+.form-control {
+    border: none;
+    border-radius: 5px;
+    padding: 12px 15px;
+    background-color: #fff; /* White background for input */
+    transition: background-color 0.3s ease;
+}
+
+.form-control:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+
+.btn-primary {
+    background-color: #005cbf;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #004a9c; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale-up effect on hover */
+}
+
+.text-muted {
+    color: #888888; /* Grey color for secondary text */
+}
+
+.text-decoration-none {
+    text-decoration: none !important; /* Remove underline from link */
+    color: inherit; /* Inherit text color */
+}
+
+.text-decoration-none:hover {
+    text-decoration: underline; /* Underline on hover */
+}

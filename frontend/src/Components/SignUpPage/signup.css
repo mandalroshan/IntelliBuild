@@ -1,0 +1,109 @@
+/* SignUpPage.css */
+.signup-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #005cbf, #04befe); /* Gradient background */
+    overflow: hidden;
+}
+
+.signup-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease forwards;
+}
+
+.signup-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+.signup-content:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Lighter background color on hover */
+}
+
+.signup-form {
+    opacity: 0;
+    animation: slideIn 1s ease forwards;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-title,
+.text-center {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideIn 1s ease forwards;
+}
+
+.btn-signup {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideIn 1s ease forwards;
+    background-color: #00c6ff; /* Blue button color */
+    color: white; /* Button text color */
+    text-transform: uppercase;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transition effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+.btn-signup:hover {
+    background-color: #0072ff; /* Darker blue button color on hover */
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+.input-field {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #00c6ff; /* Blue border color on focus */
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); /* Light shadow on focus */
+}
+
+.input-field::placeholder {
+    color: #888; /* Placeholder color */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -5,14 +5,18 @@ import './home.css';
 export const SideBar = () => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
+<<<<<<< Updated upstream
   const index = 0;
   const navigate = useNavigate();
+=======
+>>>>>>> Stashed changes
   return (
     <div>
-      <div className='navbar'>
+      {/* <div className='navbar'>
           <Link to='#' className='menu-bars'>
             <i className="bi bi-columns-gap fw-500" onClick={showSidebar} title="click for side bar"/>
           </Link>
+<<<<<<< Updated upstream
       </div>
      
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
@@ -49,6 +53,17 @@ export const SideBar = () => {
                 </Link>
           </li>
               
+=======
+        </div> */}
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSidebar}>
+            <li className='navbar-toggle'>
+              <Link to='#' className='menu-bars'>
+                
+              </Link>
+            </li>
+            
+>>>>>>> Stashed changes
           </ul>
       </nav>
       <div className="boxes">
