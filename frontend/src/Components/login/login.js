@@ -2,9 +2,10 @@
 import './login.css'; // Import your custom CSS file for styling
 
 // LoginPage.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 const LoginPage = () => {
+    
     return (
         <div className="login-container">
             <div className="login-wrapper">
@@ -24,7 +25,7 @@ const LoginPage = () => {
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i className="bi bi-envelope"></i></span>
                                     </div>
-                                    <input type="email" id="email" className="form-control" placeholder="Email" required />
+                                    <input type="email" id="email" className="form-control" placeholder="Username" required />
                                 </div>
                             </div>
                             <div className="form-group email">
@@ -32,7 +33,7 @@ const LoginPage = () => {
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i className="bi bi-lock"></i></span>
                                     </div>
-                                    <input type="password" id="password" className="form-control" placeholder="Password" required />
+                                    <input type="password" id="password" className="form-control" placeholder="Password"required />
                                 </div>
                             </div>
                             <button type="submit" className="btn btn-primary btn-block">Login</button>

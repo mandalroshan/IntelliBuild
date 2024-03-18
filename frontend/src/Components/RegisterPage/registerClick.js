@@ -22,30 +22,13 @@ import { UsecaseSpecificSettings } from "./UsecaseSpecificSettings/usecaseSpecif
 import { light } from "@mui/material/styles/createPalette";
 import { useNavigate } from "react-router-dom";
 import { SideBar } from "../Landing_Page/home";
-
-
-const steps = [
-  {
-    label: "UserForm",
-    component: <UserForm />,
-  },
-  {
-    label: "LLM Form",
-    component: <LLMForm />,
-  },
-  {
-    label: "Tools And Agents",
-    component: <ToolsAndAgents />,
-  },
-  {
-    label: "Prompt Manager",
-    component: <PromptManager />,
-  },
-  {
-    label: "Usecase Specific Settings",
-    component: <UsecaseSpecificSettings />,
-  },
-];
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#005EB8" : "#fff",
@@ -57,10 +40,35 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export function RegisterClick() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [formData, setFormData] = React.useState({ userName :'Anand',status:false});
   const done = { message: "Done", color: "green" };
   const InProgress = { message: "In Progress", color: "purple" };
   const status = InProgress;
   const navigate = useNavigate();
+  function handleFormChange(newData) {
+    setFormData({ ...formData, ...newData });
+  }
+  const steps = [
+    {
+      label: "UserForm",
+      component: <UserForm formData={formData} onChange={handleFormChange} />,
+    },
+    {
+      label: "LLM Form",
+      component: <LLMForm formData={formData} onChange={handleFormChange} />,
+    },
+    {
+      label: "Tools And Agents",
+      component: (
+        <ToolsAndAgents formData={formData} onChange={handleFormChange} />
+      ),
+    },
+    {
+      label: "Prompt Manager",
+      component: <PromptManager />,
+    },
+  ];
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     if (activeStep === steps.length) {
@@ -75,33 +83,46 @@ export function RegisterClick() {
   const handleReset = () => {
     setActiveStep(0);
   };
+  //Dialog button
+  const [open, setOpen] = React.useState(false);
 
-  const calledPreviousPage=()=> {
-    navigate(<SideBar/>);
-  }
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    console.log(JSON.stringify(formData));
+    setOpen(false);
+    alert(`usecase ${formData.UserForm.useCaseName} Added.`);
+  };
+
+  const calledPreviousPage = () => {
+    navigate("/home");
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       {/* app bar */}
       <AppBar position="static">
-        <Toolbar style={{ height: "80px", fontSize: "40px" }} color="#005EB8">
+        <Toolbar style={{ height: "60px", fontSize: "35px" }} color="#005EB8">
           <IconButton
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2, fontSize: '20px' }}
+            sx={{ mr: 3 }}
+            onClick={calledPreviousPage}
           >
-            <ArrowCircleLeftOutlinedIcon onClick={calledPreviousPage} />
+            <ArrowCircleLeftOutlinedIcon fontSize="large" />
           </IconButton>
 
           <Typography variant="h5" color="inherit" component="div">
-            Registration
+            Register New Usecase
           </Typography>
         </Toolbar>
       </AppBar>
 
       {/* Left grid */}
-      <Item sx={{ fontSize: "30px" }}>
+      <Item>
         <Stepper variant="h6" activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step variant="h6" key={step.label}>
@@ -117,7 +138,7 @@ export function RegisterClick() {
               </StepLabel>
               <StepContent>
                 {step.component}
-                <Box sx={{ mb: 2 }}>
+                <Box sx={{ mb: 2, position: "absolute", right: 10, bottom: 1 }}>
                   <div>
                     <Button
                       variant="contained"
@@ -143,10 +164,38 @@ export function RegisterClick() {
 
       {activeStep === steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
+          <Typography>All steps completed - Are you done?</Typography>
+          <Button
+            variant="outlined"
+            color="success"
+            sx={{ mt: 1, mr: 1 }}
+            onClick={handleClickOpen}
+          >
+            Yes
           </Button>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            // PaperComponent={PaperComponent}
+            // aria-labelledby="draggable-dialog-title"
+          >
+            <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
+              Do you want to save the details?
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                To subscribe to this website, please enter your email address
+                here. We will send updates occasionally.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button autoFocus onClick={handleClose}>
+                No
+              </Button>
+              <Button onClick={handleReset}>Reset</Button>
+              <Button onClick={handleClose}>Yes</Button>
+            </DialogActions>
+          </Dialog>
         </Paper>
       )}
     </Box>

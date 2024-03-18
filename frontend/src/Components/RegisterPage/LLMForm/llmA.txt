@@ -1,0 +1,195 @@
+const [expanded, setExpanded] = useState(false);
+
+  const handleChangeAccordian = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  //Item css
+  const Item = styled(Paper)(({ theme }) => ({
+    // ...theme.typography.body2,
+    textAlign: "left",
+    // color: theme.palette.text.secondary,
+    height: 50,
+    lineHeight: "60px",
+  }));
+
+
+
+
+ const BaseLLMoptions = [
+    {
+      id: 1,
+      label: "Base LLM type 1",
+      description:
+        "creasing the elevation also makes the background color lighter.",
+      category: "BaseLLM",
+    },
+    {
+      id: 2,
+      label: "Base LLM type 2",
+      description:
+        "creasing the elevation also makes the background color lighter. ",
+      category: "BaseLLM",
+    },
+    {
+      id: 3,
+      label: "Base LLM type 3",
+      description:
+        "creasing the elevation also makes the background color lighter. ",
+      category: "BaseLLM",
+    },
+  ];
+
+  const DynamicLLMoptions = [
+    {
+      id: 4,
+      label: "Dynamic LLM type 1",
+      description:
+        "creasing the elevation also makes the background color lighter. ",
+      category: "DynamicLLM",
+    },
+    {
+      id: 5,
+      label: "Dynamic LLM type 2",
+      description:
+        "creasing the elevation also makes the background color lighter. ",
+      category: "DynamicLLM",
+    },
+    {
+      id: 6,
+      label: "Dynamic LLM type 3",
+      description:
+        "creasing the elevation also makes the background color lighter. ",
+      category: "DynamicLLM",
+    },
+  ];
+
+  
+
+  //handling checkbox.
+ 
+
+
+
+
+
+
+ <Accordion
+            expanded={expanded === "panel1"}
+            onChange={handleChangeAccordian("panel1")}
+            sx={{
+              width: "200%",
+              flexShrink: 0,
+              marginBottom: "10%",
+              fontSize: "20%",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Typography variant="h6" sx={{ width: "33%", flexShrink: 0 }}>
+                Base LLM selection
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  "& > :not(style)": {
+                    m: 1,
+                    p: 1,
+                    width: 250,
+                    height: 200,
+                    fontSize: 14,
+                  },
+                }}
+              >
+                {BaseLLMoptions.map((option) => (
+                  <Paper key={option.id}>
+                    <FormGroup sx={{ bgcolor: "#f5f7f7", mb: 5 }}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            sx={{ ml: 2, mr: 2 }}
+                            checked={selectedOption === option.id}
+                            onChange={() => handleChangeCheckBox(option)}
+                            inputProps={{ "aria-label": "" }}
+                            value={option.label}
+                          />
+                        }
+                        label={
+                          <Typography variant="body1">
+                            {option.label}
+                          </Typography>
+                        }
+                      />
+                    </FormGroup>
+                    {option.description}
+                  </Paper>
+                ))}
+              </Box>
+            </AccordionDetails>
+          </Accordion>
+          {/* second accordian */}
+          <Accordion
+            expanded={expanded === "panel2"}
+            onChange={handleChangeAccordian("panel2")}
+            sx={{
+              width: "200%",
+              flexShrink: 0,
+              marginBottom: "10%",
+              fontSize: "20%",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Typography variant="h6" sx={{ width: "33%", flexShrink: 0 }}>
+                Dynamic LLM selection
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  "& > :not(style)": {
+                    m: 1,
+                    p: 1,
+                    width: 250,
+                    height: 200,
+                    fontSize: 14,
+                  },
+                }}
+              >
+                {DynamicLLMoptions.map((option) => (
+                  <Paper key={option.id}>
+                    <FormGroup sx={{ bgcolor: "#f5f7f7", mb: 5 }}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            sx={{ ml: 2, mr: 2 }}
+                            checked={selectedOption === option.id}
+                            onChange={() => handleChangeCheckBox(option)}
+                            inputProps={{ "aria-label": "" }}
+                            value={option}
+                          />
+                        }
+                        label={
+                          <Typography variant="body1">
+                            {option.label}
+                          </Typography>
+                        }
+                      />
+                    </FormGroup>
+                    {option.description}
+                  </Paper>
+                ))}
+              </Box>
+            </AccordionDetails>
+          </Accordion>

@@ -1,0 +1,260 @@
+.mainpage {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(237, 237, 232);
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  color: #1d1b1b;
+
+}
+
+.leftOut{
+  background-color: rgb(208, 206, 206);
+  width: 20%;
+  overflow: hidden;
+}
+.rightOut{
+  background-color: rgb(238, 238, 238);
+  width: 80%;
+  overflow: hidden;
+}
+
+img{
+  overlay:initial;
+  width:25%;
+  mix-blend-mode: darken;
+  margin:5px;
+}
+
+/* Left section */
+.leftSection {
+  background-color: var(--col1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.newChat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  height: 10%;
+}
+
+.text1{
+  color: black;
+  font-size: 14px;
+}
+
+.newChat div{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.newChat svg {
+  width: 30px;
+  height: 30px;
+  color: var(--textcol);
+}
+
+.allChats{
+  height: 70%;
+  overflow:auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  /* background-color: aqua; */
+  gap: 20px;
+  padding: 0px 20px;
+  scrollbar-gutter: 0;
+  color:black
+}
+
+
+
+
+
+/* Right section */
+.rightSection {
+  background-color: var(--col2);
+  height: 100vh;
+  padding: 0px 20px;
+  justify-content: space-between;
+}
+.RightButtons{
+  display: flex;
+  position:absolute;
+  top:5%;
+  right:5%;
+}
+.chatgptversion {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  height: 10%;
+  color: var(--textcol);
+  font-size: 25px;
+  gap: 10px;
+}
+
+.chatgptversion svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+.nochat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--textcol);
+  font-size: 25px;
+  height: 70%;
+  position: relative;
+}
+
+.nochat .s1 {
+  display: flex;
+  gap: 20px;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nochat .s1 h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color:black
+}
+
+.nochat .s2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  gap: 10px;
+  justify-content: center;
+}
+
+.nochat .suggestioncard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.665);
+  /* padding: 5px; */
+  width: 300px;
+  border-radius: 7px;
+  
+}
+
+.nochat .suggestioncard h2 {
+  font-size: 15px;
+  font-weight: 400;
+  
+
+}
+
+.nochat .suggestioncard p {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(104, 100, 100);
+}
+
+.bottomsection {
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+
+.bottomsection .Icon{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+
+}
+
+
+.bottomsection .Icon:hover {
+  cursor: pointer;
+  transform:scale(1.2);
+  color:rgb(54, 55, 58);
+}
+
+.bottomsection .messagebar {
+  border: 1px solid rgb(1, 1, 1);
+  align-items: center;
+  display: flex;
+  padding: 15px;
+  border-radius: 10px;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.bottomsection .messagebar input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--textcol);
+  width: 100%;
+}
+
+.messages{
+  height: 70%;
+  width: 100%;
+  padding-left: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  overflow: auto;
+  padding-top: 40px;
+}
+
+
+.messages .message{
+  display: flex;
+  gap:5px;
+}
+
+.messages .message img{
+  width: 30px;
+  height: 30px;
+}
+
+.messages .message div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.messages .message div h4{
+  color:midnightblue;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-left: 0;
+  text-align: left;
+  align-items: center;
+}
+
+
+.messages .message div p{
+  color: black;
+  font-size: 16px;
+  max-width: 1000px;
+  text-align: left;
+  align-items: left;
+  background-color: #c1c1c1a9;
+  border-radius: 0 10px 10px 10px;
+  padding: 5px;
+}

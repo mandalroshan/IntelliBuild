@@ -1,51 +1,55 @@
 .navbar {
-  background-color: #d4d4d4;
-  height: 80px;
+  background-color: #e6e3e3;
+  height: 60px;
   display: flex;
   justify-content: start;
   align-items: center;
 }
 
 .menu-bars {
-  margin-left: 2rem;
+  margin-left: 3rem;
   font-size: 2rem;
   background: none;
   margin-bottom: 15px;
 }
 .nav-menu-items p{
     color:black;
-    font-size: 40px;
-    margin-left: 3rem;
+    font-size: 30px;
+    margin-left: 2rem;
     
 }
 .boxes{
     display:flex;
     justify-content: space-around;
     align-items: center;
-    margin-left: 370px;
+    margin-left: 27%;
+
+    
     
 
 }
 .box{
-    background-color:#d4d4d4;
+    background-color:#e6e3e3;
     padding: 10px;
     margin:10px;
     border-radius: 10px;
     max-width: calc(100%-70px);
-    min-height: 180px;
+    min-height: 160px;
     transition: ease-out 0.2s;
+    font-size: 12px;
 }
 .box:hover{
-    box-shadow: 2px 1px 15px;
+    box-shadow: 1px 1px 10px;
     transition: ease-in 0.2s;
 }
 .nav-menu {
-  background-color: #d4d4d4;
-  width: 356px;
+  background-color: #e6e3e3;
+  width: 350px;
   height: 100vh;
   display: flex;
   justify-content: center;
   position: fixed;
+  position:absolute;
   top: 0;
   left: -100%;
   border-radius:0 20px 20px 0;
@@ -63,7 +67,7 @@
   align-items: center;
   padding: 6px 0px 10px 20px;
   list-style: none;
-  height: 80px;
+  height: 60px;
   margin-bottom: 20px;
 }
 #three{
@@ -74,14 +78,14 @@
   justify-content: start;
   align-items: center;
   list-style: none;
-  height: 80px;
+  height: 60px;
   margin-bottom: 20px;
 
 }
 #three a{
     text-decoration: none;
     color: #f5f5f5;
-    font-size: 22px;
+    font-size: 18px;
     background-color: #00338D;
     width:288px;
     height: 100%;
@@ -94,19 +98,19 @@
 .nav-text a {
   text-decoration: none;
   color: #f5f5f5;
-  font-size: 22px;
+  font-size: 18px;
   background-color: #00338D;
   width: 95%;
   height: 100%;
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 0 30px;
+  padding: 0 20px;
   border-radius: 5px;
 }
 
-.nav-text a:hover {
-  background-color:#00338D;
+#three a:hover,.nav-text a:hover {
+  background-color:#135ad5;
 }
 
 .nav-menu-items {
@@ -116,7 +120,7 @@
 }
 
 .navbar-toggle {
-  background-color: #d4d4d4;
+  background-color: #e6e3e3;
   width: 100%;
   height: 100px;
   display: flex;
